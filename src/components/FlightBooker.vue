@@ -43,6 +43,10 @@ function book() {
     <input name="departureDate" type="date" v-model="departureDate">
     <input :disabled="!isReturn" name="returnDate" type="date" v-model="returnDate">
     <button :disabled="!canBook" @click="book">Book</button>
+
+    <p v-if="!canBook">
+      Return date must be after departure date.
+    </p>
 </template>
 
 <style lang="scss" scoped>
@@ -51,5 +55,8 @@ select {
     display: block;
     font-size: 16px;
     margin: 0.5em;
+}
+p {
+  color: tomato;
 }
 </style>
